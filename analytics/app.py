@@ -6,7 +6,8 @@ from datetime import datetime, timedelta
 from flask import jsonify, request
 from sqlalchemy import and_, text
 from random import randint
- 
+
+
 from config import app, db
 
  
