@@ -4,19 +4,16 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws --version
-      - $(aws ecr get-login --region us-east-1 --no-include-email)
-      - REPOSITORY_URI=123215241381.dkr.ecr.us-east-1.amazonaws.com/coworking-analytics
-      - IMAGE_TAG=$CODEBUILD_BUILD_NUMBER
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 123215241381.dkr.ecr.us-east-1.amazonaws.com
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:$IMAGE_TAG analytics/
+      - docker build -t coworking-analytics .
+      - docker tag coworking-analytics:latest 123215241381.dkr.ecr.us-east-1.amazonaws.com/coworking-analytics:$CODEBUILD_BUILD_NUMBER
   post_build:
     commands:
       - echo Build completed on `date`
-      - echo Pushing the Docker image...
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker push 123215241381.dkr.ecr.us-east-1.amazonaws.com/coworking-analytics:$CODEBUILD_BUILD_NUMBER
+
 artifacts:
   files: '**/*'
