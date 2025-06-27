@@ -1,0 +1,59 @@
+{
+    "nodegroup": {
+        "nodegroupName": "my-nodes",
+        "nodegroupArn": "arn:aws:eks:us-east-1:123215241381:nodegroup/myU-cluster/my-nodes/06cbd815-1734-4a64-6ade-992133339aa4",
+        "clusterName": "myU-cluster",
+        "version": "1.32",
+        "releaseVersion": "1.32.3-20250620",
+        "createdAt": "2025-06-27T06:54:05.426000+00:00",
+        "modifiedAt": "2025-06-27T06:55:45.580000+00:00",
+        "status": "ACTIVE",
+        "capacityType": "ON_DEMAND",
+        "scalingConfig": {
+            "minSize": 1,
+            "maxSize": 2,
+            "desiredSize": 1
+        },
+        "instanceTypes": [
+            "t3.small"
+        ],
+        "subnets": [
+            "subnet-06fd156845838f58f",
+            "subnet-0a3f32e8cb1d417a8"
+        ],
+        "amiType": "AL2023_x86_64_STANDARD",
+        "nodeRole": "arn:aws:iam::123215241381:role/eksctl-myU-cluster-nodegroup-my-no-NodeInstanceRole-CWmr8hxZWnfR",
+        "labels": {
+            "alpha.eksctl.io/cluster-name": "myU-cluster",
+            "alpha.eksctl.io/nodegroup-name": "my-nodes"
+        },
+        "resources": {
+            "autoScalingGroups": [
+                {
+                    "name": "eks-my-nodes-06cbd815-1734-4a64-6ade-992133339aa4"
+                }
+            ]
+        },
+        "health": {
+            "issues": []
+        },
+        "updateConfig": {
+            "maxUnavailable": 1
+        },
+        "launchTemplate": {
+            "name": "eksctl-myU-cluster-nodegroup-my-nodes",
+            "version": "1",
+            "id": "lt-08d717b71549c6a1d"
+        },
+        "tags": {
+            "aws:cloudformation:stack-name": "eksctl-myU-cluster-nodegroup-my-nodes",
+            "alpha.eksctl.io/cluster-name": "myU-cluster",
+            "alpha.eksctl.io/nodegroup-name": "my-nodes",
+            "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:123215241381:stack/eksctl-myU-cluster-nodegroup-my-nodes/7673b2a0-5323-11f0-af88-1257c60a24e5",
+            "eksctl.cluster.k8s.io/v1alpha1/cluster-name": "myU-cluster",
+            "aws:cloudformation:logical-id": "ManagedNodeGroup",
+            "alpha.eksctl.io/nodegroup-type": "managed",
+            "alpha.eksctl.io/eksctl-version": "0.210.0"
+        }
+    }
+}
