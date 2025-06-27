@@ -9,8 +9,8 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 
 # Install dependencies
-COPY analytics/requirements.txt /app/
-RUN pip install --no-cache-dir -r analytics/requirements.txt
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY . /app/
@@ -19,4 +19,4 @@ COPY . /app/
 EXPOSE 5153
 
 # Set default command
-CMD ["python", "analytics/app.py"]
+CMD ["python", "app.py"]
